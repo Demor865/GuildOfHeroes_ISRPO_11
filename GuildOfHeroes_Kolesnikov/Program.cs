@@ -14,6 +14,27 @@ Console.WriteLine(artem.GetInfo());
 Console.WriteLine();
 Console.WriteLine(alexander.GetInfo());
 
+// Начало проверки здоровья
+Hero lowProbe = new Hero("Проверка нижней границы", -100);
+Hero highProbe = new Hero("Проверка верхней границы", 5000);
+Console.WriteLine($"Нижняя граница: {lowProbe.Health}/{lowProbe.MaxHealth}");
+Console.WriteLine($"Верхняя граница: {highProbe.Health}/{highProbe.MaxHealth}");
+Console.WriteLine($"Александр до действий: {alexander.Health}/{alexander.MaxHealth}");
+
+alexander.TakeDamage(30);
+alexander.Heal(10);
+Console.WriteLine($"Обычные действия: {alexander.Health}");
+alexander.Heal(5000);
+Console.WriteLine($"Большое лечение: {alexander.Health}");
+alexander.Heal(-20);
+Console.WriteLine($"Отказ в лечении: {alexander.Health}");
+alexander.TakeDamage(5000);
+Console.WriteLine($"Большой урон: {alexander.Health}; жив: {alexander.IsAlive()}");
+alexander.Heal(20);
+Console.WriteLine($"Восстановление: {alexander.Health}");
+Console.WriteLine($"Артём без изменений: {artem.Health}/{artem.MaxHealth}");
+// Конец проверки здоровья
+
 // Оружия
 Console.WriteLine("\n    >>> Класс оружия <<<\n");
 Weapon Sword = new Weapon("Эскалибур", 46, "Меч");
